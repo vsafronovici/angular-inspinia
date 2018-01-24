@@ -13,6 +13,8 @@ import {LoginComponent} from "./views/appviews/login.component";
 import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
+import {UsersComponent} from "./components/user/users/users.component";
+import {EditUserComponent} from "./components/user/edit-user/edit-user.component";
 
 export const ROUTES:Routes = [
   // Main redirect
@@ -45,6 +47,13 @@ export const ROUTES:Routes = [
     path: '', component: BlankLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent },
+    ]
+  },
+  {
+    path: '', component: BasicLayoutComponent,
+    children: [
+      { path: 'users', component: UsersComponent },
+      { path: 'users/:id', component: EditUserComponent },
     ]
   },
 
