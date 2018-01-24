@@ -16,14 +16,13 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
 import { UsersComponent } from './components/user/users/users.component';
 import { EditUserComponent } from './components/user/edit-user/edit-user.component';
-import { NavPathComponent } from './components/common/nav-path/nav-path.component';
+//import { NavPathComponent } from './components/common/nav-path/nav-path.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    EditUserComponent,
-    NavPathComponent
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
