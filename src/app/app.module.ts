@@ -8,26 +8,21 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {ROUTES} from "./app.routes";
 import { AppComponent } from './app.component';
 
-// App views
-//import {DashboardsModule} from "./views/dashboards/dashboards.module";
-//import {AppviewsModule} from "./views/appviews/appviews.module";
-
 // App modules/components
 import {ExamplesModule} from "./examples/examples.module";
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
 import { IboxModule } from './components/common/ibox/ibox.module'
 
-import { UsersComponent } from './components/user/users/users.component';
-import { EditUserComponent } from './components/user/edit-user/edit-user.component';
-//import { IboxComponent } from './components/common/ibox/ibox.component';
-//import { NavPathComponent } from './components/common/nav-path/nav-path.component';
+import { UsersComponent } from './components/pages/user/users/users.component';
+import { EditUserComponent } from './components/pages/user/edit-user/edit-user.component';
+import { PanelComponent } from './components/common/panel/panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    EditUserComponent
-    //IboxComponent
+    EditUserComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,

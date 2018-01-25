@@ -13,8 +13,8 @@ import {LoginComponent} from "./examples/login.component";
 import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
-import {UsersComponent} from "./components/user/users/users.component";
-import {EditUserComponent} from "./components/user/edit-user/edit-user.component";
+import {UsersComponent} from "./components/pages/user/users/users.component";
+import {EditUserComponent} from "./components/pages/user/edit-user/edit-user.component";
 
 export const ROUTES:Routes = [
   // Main redirect

@@ -7,11 +7,13 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class IboxComponent implements OnInit {
 
-  @Input() colClazz: string
+  @Input() public colClazz: string
+  @Input() public title: string
 
   constructor() { }
 
   ngOnInit() {
+    console.log('xxx', this.colClazz)
   }
 
 }
