@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,18 +9,50 @@ import { Location } from '@angular/common';
 })
 export class NavPathComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private location: Location) { }
-  public linkPaths: any[]
-  public lastPath: string
+  public header: string
+  public linkPaths: any[] = []
+  public lastPath: string = ''
+
+  constructor(private activatedRoute: ActivatedRoute, private location: Location, private router: Router) {
+    router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe((event: NavigationEnd) => {
+        // console.log(event)
+        this.generateNavPaths(event.url)
+      });
+  }
+
 
 
   ngOnInit() {
-    console.log('----location=', this.location)
-    const path: string = this.location.path()
-    console.log('----path=', path)
-    const splits: string[] = path.split('/')
-    this.lastPath = splits.pop()
-    this.linkPaths = splits.filter(o => o.length > 0)
+    this.generateNavPaths(this.location.path())
+  }
+
+  generateNavPaths(path: string) {
+    // console.log('generate path')
+    let splits: string[] = path.split('/')
+    if (splits.length > 0) {
+      this.lastPath = splits.pop()
+      this.linkPaths = []
+      let currentPath = ''
+      splits.filter(o => o.length > 0).forEach((o) => {
+        currentPath += `/${o}`
+        this.linkPaths.push({
+          text: o,
+          href: currentPath
+        })
+      })
+    }
+
+    /* Play with that */
+    if (path.includes('users')) {
+      this.header = 'Users'
+    } else if (path.includes('dashboards')){
+      this.header = 'Dashboards'
+    } else {
+      this.header = 'Home'
+    }
+
   }
 
 

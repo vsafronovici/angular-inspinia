@@ -12,6 +12,8 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit() {
     console.log('uuu', this.route)
+    const id = +this.route.snapshot.paramMap.get('id')
+    console.log('uuu id=', id)
   }
 
 }

@@ -14,6 +14,8 @@ import {TopNavbarComponent} from "./../topnavbar/topnavbar.component";
 import {TopNavigationNavbarComponent} from "./../topnavbar/topnavigationnavbar.component";
 import {NavPathComponent} from "./../nav-path/nav-path.component";
 
+import { IboxtoolsModule } from './../iboxtools/iboxtools.module';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {NavPathComponent} from "./../nav-path/nav-path.component";
   imports: [
     BrowserModule,
     RouterModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    IboxtoolsModule
   ],
   exports: [
     FooterComponent,
