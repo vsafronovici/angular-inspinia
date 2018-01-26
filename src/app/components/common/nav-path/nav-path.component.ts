@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -13,19 +13,32 @@ export class NavPathComponent implements OnInit {
   public linkPaths: any[] = []
   public lastPath: string = ''
 
+  @Input() public path: string
+  @Input() public registerRouterSubscribers: Function
+  public path2: string
+
+
   constructor(private activatedRoute: ActivatedRoute, private location: Location, private router: Router) {
+    console.log('--- Constructor')
     router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe((event: NavigationEnd) => {
         // console.log(event)
         this.generateNavPaths(event.url)
       });
+    this.path2 = 'xxx'
   }
 
 
 
   ngOnInit() {
     this.generateNavPaths(this.location.path())
+    this.registerRouterSubscribers('nav-comp', {ctx: this, func: this.sayHi})
+  }
+
+  sayHi = (path) => {
+    console.log('sayHi running path=', path)
+    this.path2 = path
   }
 
   generateNavPaths(path: string) {
