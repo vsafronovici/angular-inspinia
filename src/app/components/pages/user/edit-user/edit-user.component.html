@@ -1,4 +1,67 @@
-<p>
-  <!--hi {{user.id}}-->
-</p>
-hi {{user?.id}};
+<panel>
+  <ibox [colClazz]="'col-lg-12'" [title]="title" [showIBoxTools]="false">
+
+    <form [formGroup]="signupForm" (ngSubmit)="onFormSubmit()" *ngIf="signupForm">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label class="control-label" for="name">Name</label>
+            <input type="text" id="name" value="" placeholder="Name" class="form-control" formControlName="name">
+            <!-- name error block -->
+            <div *ngIf="name.invalid && name.touched" class="text-danger">
+              <div *ngIf = "name.errors?.required">
+                name field can't be blank
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label class="control-label" for="lastname">Last Name</label>
+            <input type="text" id="lastname" value="" placeholder="Last Name" class="form-control" formControlName="lastname">
+          </div>
+          <!-- Lastname error block -->
+          <div *ngIf="lastname.invalid && lastname.touched" class="text-danger">
+            <div *ngIf = "lastname.errors?.required">
+              lastname field can't be blank
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label class="control-label" for="email">email</label>
+            <input type="text" id="email" value="" placeholder="email" class="form-control" formControlName="email">
+          </div>
+          <!-- Email error block -->
+          <div *ngIf="email.invalid && email.touched" class="text-danger">
+            <div *ngIf = "email.errors?.required">
+              Email field can't be blank
+            </div>
+            <div *ngIf = "email.errors?.pattern">
+              The email id doesn't seem right
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label" for="status">Status</label>
+            <select name="status" id="status" class="form-control" formControlName="status">
+              <option *ngFor = "let g of statusList" [value] = "g"> {{g}} </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <button type="button" (click)="reset()" class="btn btn-default">Cancel</button>
+          <button type="submit" [disabled] = "!signupForm?.valid" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </ibox>
+<panel>
+

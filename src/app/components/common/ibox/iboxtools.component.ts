@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 declare var jQuery:any;
 
 @Component({
   selector: 'iboxtools',
   templateUrl: 'iboxtools.template.html'
 })
-export class IboxtoolsComponent {
+export class IboxtoolsComponent implements OnInit, OnChanges {
+
+  @Input() public iBoxOptions: any[]
+
+  ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('xxxx=', this.iBoxOptions)
+  }
+
 
   public collapse(e):void {
     e.preventDefault();

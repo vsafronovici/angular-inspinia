@@ -9,6 +9,8 @@ export class IboxComponent implements OnInit {
 
   @Input() public colClazz: string
   @Input() public title: string
+  @Input() public iBoxOptions: any[]
+  @Input() public showIBoxTools: boolean
 
   constructor() { }
 

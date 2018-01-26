@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
 
   public title: string = 'Users list'
   public users: any[]
+  public iBoxOptions: any[]
 
   constructor(private userSerice: UserService) { }
 
@@ -18,6 +19,17 @@ export class UsersComponent implements OnInit {
     this.userSerice.getUsers().subscribe(x => {
       this.users = x
     })
+    this.iBoxOptions = [{
+      label: 'Option1',
+      action: () => {
+        alert(`Option 1 from ${this.title}`)
+      }
+    }, {
+      label: 'Option2',
+      action: () => {
+        alert(`Option 2 from ${this.title}`)
+      }
+    }]
   }
 
   changeStatus(id) {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -7,41 +7,28 @@ import { Location } from '@angular/common';
   templateUrl: './nav-path.component.html',
   styleUrls: ['./nav-path.component.css']
 })
-export class NavPathComponent implements OnInit {
+export class NavPathComponent implements OnInit, OnChanges {
 
   public header: string
   public linkPaths: any[] = []
   public lastPath: string = ''
 
   @Input() public path: string
-  @Input() public registerRouterSubscribers: Function
-  public path2: string
-
 
   constructor(private activatedRoute: ActivatedRoute, private location: Location, private router: Router) {
     console.log('--- Constructor')
-    router.events
-      .filter(event => event instanceof NavigationEnd)
-      .subscribe((event: NavigationEnd) => {
-        // console.log(event)
-        this.generateNavPaths(event.url)
-      });
-    this.path2 = 'xxx'
   }
-
-
 
   ngOnInit() {
-    this.generateNavPaths(this.location.path())
-    this.registerRouterSubscribers('nav-comp', {ctx: this, func: this.sayHi})
+    // this.generateNavPaths(this.path)
   }
 
-  sayHi = (path) => {
-    console.log('sayHi running path=', path)
-    this.path2 = path
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log('--- changed', this.path)
+    this.generateNavPaths(this.path)
   }
 
-  generateNavPaths(path: string) {
+  generateNavPaths = (path: string) => {
     // console.log('generate path')
     let splits: string[] = path.split('/')
     if (splits.length > 0) {

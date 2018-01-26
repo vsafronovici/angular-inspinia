@@ -24,17 +24,21 @@ export class UserService {
 
   getUsers(): Observable<any[]> {
     // simulate AJAX call
-    return Observable.of(this.users).delay(1000)
+    return Observable.of(this.users).delay(500)
   }
 
   findById(id: number): Observable<any> {
     const user = this.users.find(u => u.id === id)
-    return Observable.of(user).delay(1000)
+    // simulate AJAX call
+    return Observable.of(user).delay(500)
   }
 
   save(user) {
-    const idx = this.users.findIndex(u => u.id === user.id)
-    this.users[idx] = user
+    /*const idx = this.users.findIndex(u => u.id === user.id)
+    const oldUser = this.users[idx]
+    this.users[idx] = user*/
+    const usr = this.users.find(u => u.id === user.id)
+    Object.assign(usr, {...user})
   }
 
 }
