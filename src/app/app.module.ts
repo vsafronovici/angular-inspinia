@@ -16,6 +16,7 @@ import { IboxModule } from './components/common/ibox/ibox.module'
 import { UsersComponent } from './components/pages/user/users/users.component';
 import { EditUserComponent } from './components/pages/user/edit-user/edit-user.component';
 import { PanelComponent } from './components/common/panel/panel.component';
+import {UserService} from "./services/user/user.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { PanelComponent } from './components/common/panel/panel.component';
     IboxModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

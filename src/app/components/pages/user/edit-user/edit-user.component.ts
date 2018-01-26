@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {UserService} from "../../../../services/user/user.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'edit-user',
@@ -8,12 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  public user: any
+
+  constructor(private route: ActivatedRoute, private userSerice: UserService) { }
 
   ngOnInit() {
     console.log('uuu', this.route)
-    const id = +this.route.snapshot.paramMap.get('id')
-    console.log('uuu id=', id)
+    const id = Number(this.route.snapshot.paramMap.get('id'))
+    this.userSerice.findById(id).subscribe(x => {
+      console.log('user=', x)
+      this.user = x
+    })
+
   }
 
 }
