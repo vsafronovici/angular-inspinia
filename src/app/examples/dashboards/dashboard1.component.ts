@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 // Import Chart.js library
 import 'chart.js';
 
-import { FlotChartDirective } from '../../components/charts/flotChart';
+import { FlotChartDirective } from '../components/charts/flotChart';
 
 declare var jQuery:any;
 

@@ -13,7 +13,6 @@ export class IboxtoolsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('xxxx=', this.iBoxOptions)
   }
 
 

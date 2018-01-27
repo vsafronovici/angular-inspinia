@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { detectBody } from '../../../app.helpers';
+import { detectBody } from '../../../utils/app.helpers';
 
 declare var jQuery:any;
 

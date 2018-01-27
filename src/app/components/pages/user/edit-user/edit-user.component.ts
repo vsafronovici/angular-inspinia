@@ -15,19 +15,17 @@ export class EditUserComponent implements OnInit {
   public title: string
   public signupForm: FormGroup
   public statusList = ['ENABLED', 'DISABLED', 'SUSPENDED']
+  public roleList = ['ADMIN', 'USER']
 
   constructor(private route: ActivatedRoute, private userSerice: UserService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log('uuu', this.route)
     const id = Number(this.route.snapshot.paramMap.get('id'))
     this.userSerice.findById(id).subscribe(u => {
       this.user = u
       this.title = `Edit user ${u.name}`
       this.createForm()
     })
-
-    // this.createForm('')
   }
 
   createForm = () => {
@@ -35,6 +33,7 @@ export class EditUserComponent implements OnInit {
       name: [this.user.name, Validators.required],
       lastname: [this.user.lastname, Validators.required],
       email: [this.user.email, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      role: [this.user.role, Validators.required],
       status: [this.user.status, Validators.required]
     })
   }

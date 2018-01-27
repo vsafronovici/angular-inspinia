@@ -9,7 +9,7 @@ import {BlankLayoutComponent} from "./blankLayout.component";
 import {TopNavigationLayoutComponent} from "./topNavigationlayout.component";
 
 import {NavigationComponent} from "../layout-elements/navigation/navigation.component";
-import {FooterComponent} from "./../footer/footer.component";
+import {FooterComponent} from "../layout-elements/footer/footer.component";
 import {TopNavbarComponent} from "../layout-elements/topnavbar/topnavbar.component";
 import {TopNavigationNavbarComponent} from "../layout-elements/topnavbar/topnavigationnavbar.component";
 import {NavPathComponent} from "../layout-elements/nav-path/nav-path.component";

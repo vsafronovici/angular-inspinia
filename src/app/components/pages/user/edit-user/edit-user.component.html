@@ -44,7 +44,16 @@
           </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label class="control-label" for="role">Role</label>
+            <select name="status" id="role" class="form-control" formControlName="role">
+              <option *ngFor = "let g of roleList" [value] = "g"> {{g}} </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm-2">
           <div class="form-group">
             <label class="control-label" for="status">Status</label>
             <select name="status" id="status" class="form-control" formControlName="status">

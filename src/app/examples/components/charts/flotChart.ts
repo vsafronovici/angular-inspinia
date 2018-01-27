@@ -1,10 +1,10 @@
 import { OnDestroy, OnInit, OnChanges, ElementRef, Input, SimpleChanges, NgModule, Directive } from '@angular/core';
 
 // Import Chart.js library
-import './../../../../vendor/flot/jquery.flot.js';
-import './../../../../vendor/flot/jquery.flot.tooltip.min.js';
-import './../../../../vendor/flot/jquery.flot.spline.js';
-import './../../../../vendor/flot/jquery.flot.time.js';
+import '../../../../../vendor/flot/jquery.flot.js';
+import '../../../../../vendor/flot/jquery.flot.tooltip.min.js';
+import '../../../../../vendor/flot/jquery.flot.spline.js';
+import '../../../../../vendor/flot/jquery.flot.time.js';
 
 declare var jQuery:any;
 

@@ -14,11 +14,11 @@ import {Dashboard5Component} from "./dashboards/dashboard5.component";
 // Chart.js Angular 2 Directive by Valor Software (npm)
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
-import { FlotModule } from '../components/charts/flotChart';
+import { FlotModule } from './components/charts/flotChart';
 import { IboxModule } from '../components/common/ibox/ibox.module';
-import { PeityModule } from '../components/charts/peity';
-import { SparklineModule } from '../components/charts/sparkline';
-import { JVectorMapModule } from '../components/map/jvectorMap';
+import { PeityModule } from './components/charts/peity';
+import { SparklineModule } from './components/charts/sparkline';
+import { JVectorMapModule } from './components/map/jvectorMap';
 
 
 @NgModule({

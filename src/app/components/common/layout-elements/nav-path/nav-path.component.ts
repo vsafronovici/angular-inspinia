@@ -1,6 +1,4 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import { ActivatedRoute, Router, NavigationStart, NavigationEnd} from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'navpath',
@@ -15,9 +13,7 @@ export class NavPathComponent implements OnInit, OnChanges {
 
   @Input() public path: string
 
-  constructor(private activatedRoute: ActivatedRoute, private location: Location, private router: Router) {
-    console.log('--- Constructor')
-  }
+  constructor() {}
 
   ngOnInit() {
     // this.generateNavPaths(this.path)

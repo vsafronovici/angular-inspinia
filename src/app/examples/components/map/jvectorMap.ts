@@ -1,8 +1,8 @@
 import { OnDestroy, OnInit, OnChanges, ElementRef, Input, SimpleChanges, NgModule, Directive } from '@angular/core';
 
 // Import Chart.js library
-import './../../../../node_modules/jvectormap/jquery-jvectormap.min.js';
-import './../../../../node_modules/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js';
+import '../../../../../node_modules/jvectormap/jquery-jvectormap.min.js';
+import '../../../../../node_modules/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js';
 
 declare var jQuery:any;
 
