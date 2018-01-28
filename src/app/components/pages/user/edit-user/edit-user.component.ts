@@ -47,7 +47,9 @@ export class EditUserComponent implements OnInit {
       Object.assign(this.user, {...this.signupForm.value})
       //this.user = this.signupForm.value;
       console.log('saving user', this.user)
-      this.userSerice.save(this.user)
+      this.userSerice.save(this.user).subscribe(s => {
+        console.log('save user status=', s)
+      })
     }
   }
 

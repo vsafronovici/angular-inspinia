@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.userSerice.getUsers().subscribe(x => {
+      console.log('--------- users=', x)
       this.users = x
     })
     this.iBoxOptions = [{
@@ -40,6 +41,10 @@ export class UsersComponent implements OnInit {
     } else {
       user.status = 'ENABLED'
     }
+    this.userSerice.save(user).subscribe(s => {
+      console.log('save user status=', s)
+    })
+
   }
 
 }
