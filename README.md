@@ -1,4 +1,4 @@
-OrganicOne UI-Angular
+Inspinia UI-Angular
 =============================
 
 
